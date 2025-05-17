@@ -1,4 +1,6 @@
-﻿namespace infrastructure.networkservices.core
+﻿using infrastructure.networkservices.core;
+
+namespace infrastructure.backgroundservices
 {
 	//1
 	public class NetworkServerHostedService : BackgroundService

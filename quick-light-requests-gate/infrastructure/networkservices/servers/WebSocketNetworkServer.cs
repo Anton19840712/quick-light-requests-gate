@@ -3,7 +3,7 @@ using System.Net.WebSockets;
 using System.Text;
 using application.interfaces.networking;
 using application.interfaces.services;
-using servers_api.api.streaming.connectionContexts;
+using infrastructure.networkservices.connectionContexts;
 
 namespace infrastructure.networkservices.servers
 {
