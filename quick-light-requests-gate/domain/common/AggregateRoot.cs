@@ -8,7 +8,7 @@ namespace domain.common
         private readonly List<IDomainEvent> _domainEvents = new();
         public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-        protected void AddDomainEvent(IDomainEvent @event)
+        protected internal void AddDomainEvent(IDomainEvent @event)
         {
             _domainEvents.Add(@event);
         }

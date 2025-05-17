@@ -1,6 +1,4 @@
 using infrastructure.configuration;
-using infrastructure.messaging;
-using infrastructure.services.background;
 using Serilog;
 
 Console.Title = "integration api";

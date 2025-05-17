@@ -2,26 +2,26 @@
 using application.interfaces.services;
 using domain.entities;
 using domain.enums;
+using domain.events;
 using domain.models.outbox;
-using quick_light_requests_gate.tmp;
 
 namespace infrastructure.services.processing
 {
 	// Сервис обработки сообщений:
 	public class MessageProcessingService : IMessageProcessingService
 	{
-		private readonly IDomainEventDispatcher _domainEventDispatcher;
+		private readonly IEventPublisher _eventPublisher;
 		private readonly IMongoRepository<OutboxMessage> _outboxRepository;
 		private readonly IMongoRepository<IncidentEntity> _incidentRepository;
 		private readonly ILogger<MessageProcessingService> _logger;
 
 		public MessageProcessingService(
-			IDomainEventDispatcher domainEventDispatcher,
+			IEventPublisher eventPublisher,
 			IMongoRepository<OutboxMessage> outboxRepository,
 			IMongoRepository<IncidentEntity> incidentRepository,
 			ILogger<MessageProcessingService> logger)
 		{
-			_domainEventDispatcher = domainEventDispatcher;
+			_eventPublisher = eventPublisher;
 			_outboxRepository = outboxRepository ?? throw new ArgumentNullException(nameof(outboxRepository));
 			_incidentRepository = incidentRepository ?? throw new ArgumentNullException(nameof(incidentRepository));
 			_logger = logger;
@@ -66,9 +66,14 @@ namespace infrastructure.services.processing
 
 				await _incidentRepository.SaveMessageAsync(incidentEntity);
 
-				await _domainEventDispatcher.DispatchAsync(incidentEntity.DomainEvents);
+				incidentEntity.AddDomainEvent(new IncidentCreatedEvent(incidentEntity));
 
+				// Публикуем все события, прикреплённые к сущности
+				await _eventPublisher.PublishAsync(incidentEntity.DomainEvents);
+
+				// Очищаем события после публикации
 				incidentEntity.ClearDomainEvents();
+
 			}
 			catch (Exception ex)
 			{
