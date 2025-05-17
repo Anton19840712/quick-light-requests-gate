@@ -1,6 +1,7 @@
 ﻿using domain.events;
+using quick_light_requests_gate.tmp;
 
-namespace quick_light_requests_gate.tmp
+namespace infrastructure.services.events
 {
 	public class DomainEventDispatcher : IDomainEventDispatcher
 	{
