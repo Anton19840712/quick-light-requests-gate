@@ -14,8 +14,10 @@ namespace infrastructure.configuration
             services.AddScoped<IDomainEventHandler<IncidentCreatedEvent>, IncidentEventHandler>();
             services.AddScoped<IDomainEventHandler<IncidentUpdatedEvent>, IncidentEventHandler>();
             services.AddScoped<IDomainEventHandler<IncidentProcessedEvent>, IncidentEventHandler>();
+            services.AddScoped<IEventPublisher, EventPublisher>();
+            services.AddScoped<IDomainEventHandler<IncidentCreatedEvent>, IncidentEventHandler>();
 
-            return services;
+			return services;
         }
     }
 }
