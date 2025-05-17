@@ -1,5 +1,6 @@
 ﻿using RabbitMQ.Client.Events;
 using RabbitMQ.Client;
+using application.interfaces.messaging;
 
 namespace infrastructure.messagebroker.listeners.listenersrabbit
 {

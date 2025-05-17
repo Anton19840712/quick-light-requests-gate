@@ -1,4 +1,5 @@
 ﻿using System.Net.WebSockets;
+using application.interfaces.networking;
 
 namespace servers_api.api.streaming.connectionContexts
 {

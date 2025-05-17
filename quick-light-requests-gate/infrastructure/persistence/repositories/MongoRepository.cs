@@ -1,4 +1,5 @@
-﻿using domain.entities;
+﻿using application.interfaces.persistence;
+using domain.entities;
 using domain.models.configurationsettings;
 using domain.models.outbox;
 using Microsoft.Extensions.Options;

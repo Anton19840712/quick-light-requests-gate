@@ -1,4 +1,4 @@
-﻿namespace application.messagesenders.sending.abstractions
+﻿namespace application.interfaces.services
 {
 	public interface IConnectionMessageSender
 	{

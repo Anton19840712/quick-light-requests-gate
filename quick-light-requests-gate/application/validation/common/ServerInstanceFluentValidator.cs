@@ -1,4 +1,4 @@
-﻿using application.validation.common;
+﻿using application.interfaces.services;
 using domain.models.dynamicgatesettings.internalusage;
 using domain.models.response;
 using FluentValidation;

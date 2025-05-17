@@ -1,7 +1,7 @@
 ﻿using domain.models.dynamicgatesettings.internalusage;
 using domain.models.response;
 
-namespace application.validation.common
+namespace application.interfaces.services
 {
 	public interface IServerInstanceFluentValidator
 	{

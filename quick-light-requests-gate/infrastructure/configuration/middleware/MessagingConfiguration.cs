@@ -1,5 +1,5 @@
 ﻿using application.formatters.formatting;
-using application.messagesenders.sending.main;
+using application.interfaces.services;
 using application.services.processing;
 
 namespace infrastructure.configuration.middleware

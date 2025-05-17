@@ -1,5 +1,5 @@
-﻿using domain.models.outbox;
-using infrastructure.persistence.repositories;
+﻿using application.interfaces.persistence;
+using domain.models.outbox;
 
 public class OutboxMongoBackgroundService : BackgroundService
 {

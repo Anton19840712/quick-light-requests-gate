@@ -1,6 +1,6 @@
-﻿using servers_api.api.streaming.connectionContexts;
+﻿using application.interfaces.networking;
 
-namespace application.messagesenders.sending.main
+namespace application.interfaces.services
 {
 	/// <summary>
 	/// Отсылает сообщение на внешний клиент.

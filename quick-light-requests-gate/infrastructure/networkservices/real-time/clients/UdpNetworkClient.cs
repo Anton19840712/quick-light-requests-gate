@@ -1,6 +1,7 @@
 ﻿using System.Net.Sockets;
 using System.Text;
-using application.services.processing;
+using application.interfaces.networking;
+using application.interfaces.services;
 
 namespace servers_api.api.streaming.clients
 {

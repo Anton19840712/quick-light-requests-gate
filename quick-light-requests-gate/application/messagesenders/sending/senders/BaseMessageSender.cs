@@ -1,4 +1,5 @@
-﻿using application.messagesenders.sending.abstractions;
+﻿using application.interfaces.messaging;
+using application.interfaces.services;
 using infrastructure.messagebroker.listeners.listenersrabbit;
 
 namespace application.messagesenders.sending.senders

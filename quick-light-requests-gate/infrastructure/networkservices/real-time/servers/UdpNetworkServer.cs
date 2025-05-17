@@ -1,7 +1,8 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using application.messagesenders.sending.main;
+using application.interfaces.networking;
+using application.interfaces.services;
 using servers_api.api.streaming.connectionContexts;
 
 namespace servers_api.api.streaming.servers

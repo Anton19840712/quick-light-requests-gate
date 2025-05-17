@@ -1,4 +1,4 @@
-﻿using servers_api.api.streaming.clients;
+﻿using application.interfaces.networking;
 
 namespace servers_api.api.streaming.core
 {

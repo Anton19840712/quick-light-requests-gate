@@ -1,4 +1,4 @@
-﻿namespace application.services.processing
+﻿namespace application.interfaces.services
 {
 	// Интерфейс сервиса обработки сообщений:
 	public interface IMessageProcessingService

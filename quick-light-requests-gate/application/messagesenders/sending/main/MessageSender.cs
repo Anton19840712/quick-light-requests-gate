@@ -1,6 +1,6 @@
-﻿using application.messagesenders.sending.abstractions;
-using application.messagesenders.sending.main;
-using servers_api.api.streaming.connectionContexts;
+﻿using application.interfaces.networking;
+using application.interfaces.services;
+using application.messagesenders.sending.abstractions;
 
 public class MessageSender : IMessageSender
 {

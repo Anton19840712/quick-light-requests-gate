@@ -1,4 +1,4 @@
-﻿namespace infrastructure.messagebroker.listeners.listenersrabbit
+﻿namespace application.interfaces.messaging
 {
 	public interface IRabbitMqQueueListener<TListener> where TListener : class
 	{

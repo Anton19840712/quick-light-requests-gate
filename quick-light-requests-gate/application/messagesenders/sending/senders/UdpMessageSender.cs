@@ -2,6 +2,7 @@
 using System.Net;
 using System.Text;
 using infrastructure.messagebroker.listeners.listenersrabbit;
+using application.interfaces.messaging;
 
 namespace application.messagesenders.sending.senders
 {

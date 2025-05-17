@@ -1,6 +1,7 @@
-﻿using domain.entities;
+﻿using application.interfaces.messaging;
+using application.interfaces.persistence;
+using domain.entities;
 using infrastructure.messagebroker.listeners.listenersrabbit;
-using infrastructure.persistence.repositories;
 
 public class QueueListenerBackgroundService : BackgroundService
 {

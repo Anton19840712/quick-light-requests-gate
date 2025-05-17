@@ -1,4 +1,4 @@
-﻿namespace servers_api.api.streaming.servers
+﻿namespace application.interfaces.networking
 {
 	public interface INetworkServer
 	{

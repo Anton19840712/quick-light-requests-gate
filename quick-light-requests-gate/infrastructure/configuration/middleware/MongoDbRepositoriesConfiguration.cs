@@ -1,4 +1,5 @@
-﻿using infrastructure.persistence.repositories;
+﻿using application.interfaces.persistence;
+using infrastructure.persistence.repositories;
 
 namespace infrastructure.configuration.middleware
 {

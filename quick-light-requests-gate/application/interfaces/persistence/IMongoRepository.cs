@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace infrastructure.persistence.repositories
+namespace application.interfaces.persistence
 {
 	public interface IMongoRepository<T> where T : class
 	{

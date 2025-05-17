@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace application.formatters.formatting
+namespace application.interfaces.services
 {
 	public interface IMessageFormatter
 	{

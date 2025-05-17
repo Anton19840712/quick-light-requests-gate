@@ -1,4 +1,5 @@
-﻿using domain.entities;
+﻿using application.interfaces.messaging;
+using domain.entities;
 using infrastructure.messagebroker.listeners.listenersrabbit;
 using infrastructure.persistence.repositories;
 using Microsoft.AspNetCore.Mvc;

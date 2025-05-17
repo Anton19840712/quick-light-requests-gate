@@ -1,4 +1,5 @@
-﻿using domain.models.configurationsettings;
+﻿using application.interfaces.messaging;
+using domain.models.configurationsettings;
 using infrastructure.messagebroker.listeners.listenersrabbit;
 using infrastructure.messagebroker.rabbitqueuesconnections;
 using Microsoft.Extensions.Options;

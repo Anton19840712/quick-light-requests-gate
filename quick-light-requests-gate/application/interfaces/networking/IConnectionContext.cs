@@ -1,4 +1,4 @@
-﻿namespace servers_api.api.streaming.connectionContexts
+﻿namespace application.interfaces.networking
 {
 	public interface IConnectionContext
 	{

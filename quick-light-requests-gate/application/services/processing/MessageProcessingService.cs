@@ -1,7 +1,8 @@
-﻿using domain.entities;
+﻿using application.interfaces.persistence;
+using application.interfaces.services;
+using domain.entities;
 using domain.enums;
 using domain.models.outbox;
-using infrastructure.persistence.repositories;
 
 namespace application.services.processing
 {
