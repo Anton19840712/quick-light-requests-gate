@@ -1,10 +1,10 @@
 using application.interfaces.networking;
-using application.messagesenders.sending.abstractions;
-using infrastructure.configuration.middleware;
+using infrastructure.configuration;
+using infrastructure.messagesenders.sending;
+using infrastructure.networkservices.clients;
+using infrastructure.networkservices.core;
+using infrastructure.networkservices.servers;
 using Serilog;
-using servers_api.api.streaming.clients;
-using servers_api.api.streaming.core;
-using servers_api.api.streaming.servers;
 
 Console.Title = "integration api";
 
