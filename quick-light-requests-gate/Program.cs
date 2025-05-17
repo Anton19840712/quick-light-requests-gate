@@ -4,6 +4,7 @@ using infrastructure.configuration;
 using infrastructure.messaging;
 using infrastructure.networking;
 using infrastructure.services.background;
+using infrastructure.services.events;
 using quick_light_requests_gate.infrastructure.services.events;
 using quick_light_requests_gate.tmp;
 using Serilog;
