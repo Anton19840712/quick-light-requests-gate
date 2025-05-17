@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 using application.interfaces.messaging;
-using infrastructure.messagebroker.listeners;
+using infrastructure.messagebroker;
 
 namespace infrastructure.messagesenders.sending
 {

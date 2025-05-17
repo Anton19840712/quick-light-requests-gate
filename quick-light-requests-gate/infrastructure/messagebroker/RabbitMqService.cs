@@ -3,7 +3,7 @@ using RabbitMQ.Client.Events;
 using RabbitMQ.Client.Exceptions;
 using System.Text;
 
-namespace infrastructure.messagebroker.rabbitqueuesconnections
+namespace infrastructure.messagebroker
 {
 	public class RabbitMqService : IRabbitMqService
 	{

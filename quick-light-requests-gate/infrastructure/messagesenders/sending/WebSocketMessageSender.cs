@@ -1,7 +1,7 @@
 ﻿using System.Net.WebSockets;
 using System.Text;
 using application.interfaces.messaging;
-using infrastructure.messagebroker.listeners;
+using infrastructure.messagebroker;
 
 namespace infrastructure.messagesenders.sending
 {

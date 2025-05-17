@@ -1,6 +1,6 @@
 ﻿using application.interfaces.messaging;
 using application.interfaces.services;
-using infrastructure.messagebroker.listeners;
+using infrastructure.messagebroker;
 
 namespace infrastructure.messagesenders.sending
 {

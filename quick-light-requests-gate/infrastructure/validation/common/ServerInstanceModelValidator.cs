@@ -2,7 +2,7 @@
 using FluentValidation;
 using System.Net;
 
-namespace application.validation.common
+namespace infrastructure.validation.common
 {
 	public class ServerInstanceModelValidator : AbstractValidator<ServerInstanceModel>
 	{

@@ -1,7 +1,7 @@
 ﻿using application.interfaces.messaging;
 using application.interfaces.networking;
 using application.interfaces.services;
-using infrastructure.messagebroker.listeners;
+using infrastructure.messagebroker;
 using infrastructure.networkservices.connectionContexts;
 
 namespace infrastructure.messagesenders.sending

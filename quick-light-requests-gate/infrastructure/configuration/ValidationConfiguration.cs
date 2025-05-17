@@ -1,7 +1,7 @@
 ﻿using application.interfaces.services;
-using application.validation.common;
 using domain.models.dynamicgatesettings.internalusage;
 using FluentValidation;
+using infrastructure.validation.common;
 
 namespace infrastructure.configuration
 {

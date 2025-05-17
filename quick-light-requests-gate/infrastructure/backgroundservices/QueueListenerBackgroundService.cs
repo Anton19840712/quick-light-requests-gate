@@ -1,7 +1,7 @@
 ﻿using application.interfaces.messaging;
 using application.interfaces.persistence;
 using domain.entities;
-using infrastructure.messagebroker.listeners;
+using infrastructure.messagebroker;
 
 public class QueueListenerBackgroundService : BackgroundService
 {
