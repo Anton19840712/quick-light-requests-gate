@@ -2,7 +2,7 @@ using application.interfaces.networking;
 using infrastructure.configuration;
 using infrastructure.messaging;
 using infrastructure.networking;
-using infrastructure.services;
+using infrastructure.services.background;
 using Serilog;
 
 Console.Title = "integration api";

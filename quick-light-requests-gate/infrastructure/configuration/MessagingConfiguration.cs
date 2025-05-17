@@ -1,5 +1,5 @@
 ﻿using application.interfaces.services;
-using infrastructure.services;
+using infrastructure.services.formatting;
 using infrastructure.services.processing;
 
 namespace infrastructure.configuration

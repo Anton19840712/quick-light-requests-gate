@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using application.interfaces.services;
 
-namespace infrastructure.services
+namespace infrastructure.services.formatting
 {
 	public class MessageFormatter : IMessageFormatter
 	{

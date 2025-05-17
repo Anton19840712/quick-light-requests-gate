@@ -1,6 +1,6 @@
 ﻿using infrastructure.networking;
 
-namespace infrastructure.services
+namespace infrastructure.services.background
 {
 	//1
 	public class NetworkServerHostedService : BackgroundService
