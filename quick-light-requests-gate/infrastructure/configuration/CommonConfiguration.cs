@@ -1,4 +1,6 @@
-﻿namespace infrastructure.configuration
+﻿using infrastructure.messaging;
+
+namespace infrastructure.configuration
 {
 	static class CommonConfiguration
 	{
@@ -8,6 +10,7 @@
 		public static IServiceCollection AddCommonServices(this IServiceCollection services)
 		{
 			services.AddCors();
+			services.AddScoped<ConnectionMessageSenderFactory>();
 
 			return services;
 		}

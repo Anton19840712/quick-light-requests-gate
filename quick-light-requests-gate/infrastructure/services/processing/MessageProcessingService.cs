@@ -2,7 +2,6 @@
 using application.interfaces.services;
 using domain.entities;
 using domain.enums;
-using domain.events;
 using domain.models.outbox;
 using quick_light_requests_gate.tmp;
 

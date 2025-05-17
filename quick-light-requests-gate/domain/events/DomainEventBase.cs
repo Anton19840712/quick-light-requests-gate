@@ -1,5 +1,3 @@
-using System;
-
 namespace domain.events
 {
     public abstract class DomainEventBase : IDomainEvent

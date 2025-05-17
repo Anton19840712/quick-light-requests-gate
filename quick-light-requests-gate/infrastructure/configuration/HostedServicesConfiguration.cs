@@ -1,4 +1,6 @@
-﻿namespace infrastructure.configuration
+﻿using infrastructure.services.background;
+
+namespace infrastructure.configuration
 {
 	static class HostedServicesConfiguration
 	{
@@ -9,6 +11,7 @@
 		{
 			services.AddHostedService<QueueListenerBackgroundService>();
 			services.AddHostedService<OutboxMongoBackgroundService>();
+			services.AddHostedService<NetworkServerHostedService>();
 
 			return services;
 		}

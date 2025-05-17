@@ -1,7 +1,6 @@
 
 using application.interfaces.networking;
 using infrastructure.networking;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace infrastructure.configuration
 {

@@ -1,13 +1,91 @@
+using infrastructure.configuration;
+using infrastructure.messaging;
+using infrastructure.services.background;
+using Serilog;
+
+Console.Title = "integration api";
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
-builder.Services
-    .AddEventServices()
-    .AddNetworkServices()
-    .AddBackgroundServices()
-    .AddMessageServingServices()
-    .AddRabbitMqServices(builder.Configuration)
-    .AddMongoDb(builder.Configuration);
-
-// Configure logging
 LoggingConfiguration.ConfigureLogging(builder);
+
+ConfigureServices(builder);
+
+var app = builder.Build();
+
+try
+{
+	// Настройка динамического шлюза (через зарегистрированный сервис)
+	var gateConfigurator = app.Services.GetRequiredService<GateConfiguration>();
+	var (httpUrl, httpsUrl) = await gateConfigurator.ConfigureDynamicGateAsync(args, builder);
+
+	// Применяем настройки приложения
+	ConfigureApp(app, httpUrl, httpsUrl);
+
+	// Запускаем
+	await app.RunAsync();
+}
+catch (Exception ex)
+{
+	Log.Fatal(ex, "Критическая ошибка при запуске приложения");
+	throw;
+}
+finally
+{
+	Log.CloseAndFlush();
+}
+static void ConfigureServices(WebApplicationBuilder builder)
+{
+	var configuration = builder.Configuration;
+
+	var services = builder.Services;
+
+	services.AddNetworkServices();
+	services.AddEventServices();
+
+	services.AddControllers();
+
+	services.AddCommonServices();
+	services.AddHttpServices();
+	services.AddRabbitMqServices(configuration);
+	services.AddMessageServingServices();
+	services.AddMongoDbServices(configuration);
+	services.AddMongoDbRepositoriesServices(configuration);
+	services.AddValidationServices();
+	services.AddHostedServices();
+
+	// Регистрируем GateConfiguration
+	services.AddSingleton<GateConfiguration>();
+}
+
+static void ConfigureApp(WebApplication app, string httpUrl, string httpsUrl)
+{
+	try
+	{
+		if (!string.IsNullOrEmpty(httpUrl))
+			app.Urls.Add(httpUrl);
+
+		if (!string.IsNullOrEmpty(httpsUrl))
+			app.Urls.Add(httpsUrl);
+
+		Log.Information($"Приложение слушает:");
+		if (!string.IsNullOrEmpty(httpUrl))
+			Log.Information($"[HTTP] {httpUrl}");
+
+		if (!string.IsNullOrEmpty(httpsUrl))
+			Log.Information($"[HTTPS] {httpsUrl}");
+
+		app.UseSerilogRequestLogging();
+
+		app.UseCors(cors => cors
+			.AllowAnyOrigin()
+			.AllowAnyMethod()
+			.AllowAnyHeader());
+
+		app.MapControllers();
+	}
+	catch (Exception ex)
+	{
+		Log.Error(ex, "Ошибка при настройке приложения (возможно, проблема с SSL-сертификатом)");
+	}
+}

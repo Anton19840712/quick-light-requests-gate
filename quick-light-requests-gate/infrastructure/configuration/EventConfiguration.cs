@@ -1,7 +1,8 @@
 
 using domain.events;
 using infrastructure.services.events;
-using Microsoft.Extensions.DependencyInjection;
+using quick_light_requests_gate.infrastructure.services.events;
+using quick_light_requests_gate.tmp;
 
 namespace infrastructure.configuration
 {
@@ -10,7 +11,6 @@ namespace infrastructure.configuration
         public static IServiceCollection AddEventServices(this IServiceCollection services)
         {
             services.AddSingleton<IDomainEventDispatcher, DomainEventDispatcher>();
-            services.AddScoped<IIncidentEventHandler, IncidentEventHandler>();
             services.AddScoped<IDomainEventHandler<IncidentCreatedEvent>, IncidentEventHandler>();
             services.AddScoped<IDomainEventHandler<IncidentUpdatedEvent>, IncidentEventHandler>();
             services.AddScoped<IDomainEventHandler<IncidentProcessedEvent>, IncidentEventHandler>();
