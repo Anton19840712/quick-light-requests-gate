@@ -1,5 +1,4 @@
-
-using System.Collections.Generic;
+using domain.entities;
 using domain.events;
 
 namespace domain.common

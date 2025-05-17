@@ -1,8 +1,11 @@
 using application.interfaces.networking;
+using domain.events;
 using infrastructure.configuration;
 using infrastructure.messaging;
 using infrastructure.networking;
 using infrastructure.services.background;
+using quick_light_requests_gate.infrastructure.services.events;
+using quick_light_requests_gate.tmp;
 using Serilog;
 
 Console.Title = "integration api";
@@ -39,7 +42,6 @@ finally
 
 static void ConfigureServices(WebApplicationBuilder builder)
 {
-	
 	var configuration = builder.Configuration;
 
 	var services = builder.Services;
@@ -57,6 +59,12 @@ static void ConfigureServices(WebApplicationBuilder builder)
 
 	services.AddHostedService<NetworkServerHostedService>();
 	services.AddScoped<ConnectionMessageSenderFactory>();
+
+	services.AddSingleton<IDomainEventDispatcher, DomainEventDispatcher>();
+	services.AddScoped<IDomainEventHandler<IncidentCreatedEvent>, IncidentEventHandler>();
+	services.AddScoped<IDomainEventHandler<IncidentUpdatedEvent>, IncidentEventHandler>();
+	services.AddScoped<IDomainEventHandler<IncidentProcessedEvent>, IncidentEventHandler>();
+
 
 	services.AddControllers();
 

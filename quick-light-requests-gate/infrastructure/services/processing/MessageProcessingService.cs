@@ -2,22 +2,27 @@
 using application.interfaces.services;
 using domain.entities;
 using domain.enums;
+using domain.events;
 using domain.models.outbox;
+using quick_light_requests_gate.tmp;
 
 namespace infrastructure.services.processing
 {
 	// Сервис обработки сообщений:
 	public class MessageProcessingService : IMessageProcessingService
 	{
+		private readonly IDomainEventDispatcher _domainEventDispatcher;
 		private readonly IMongoRepository<OutboxMessage> _outboxRepository;
 		private readonly IMongoRepository<IncidentEntity> _incidentRepository;
 		private readonly ILogger<MessageProcessingService> _logger;
 
 		public MessageProcessingService(
+			IDomainEventDispatcher domainEventDispatcher,
 			IMongoRepository<OutboxMessage> outboxRepository,
 			IMongoRepository<IncidentEntity> incidentRepository,
 			ILogger<MessageProcessingService> logger)
 		{
+			_domainEventDispatcher = domainEventDispatcher;
 			_outboxRepository = outboxRepository ?? throw new ArgumentNullException(nameof(outboxRepository));
 			_incidentRepository = incidentRepository ?? throw new ArgumentNullException(nameof(incidentRepository));
 			_logger = logger;
@@ -49,9 +54,8 @@ namespace infrastructure.services.processing
 				};
 				await _outboxRepository.SaveMessageAsync(outboxMessage);
 
-				var incidentEntity = new IncidentEntity
+				var incidentEntity = new IncidentEntity(message)
 				{
-					Payload = message,
 					CreatedAtUtc = DateTime.UtcNow,
 					CreatedBy = $"{protocol}-server-instance",
 					IpAddress = "default",
@@ -60,7 +64,12 @@ namespace infrastructure.services.processing
 					ModelType = "Incident",
 					IsProcessed = false
 				};
+
 				await _incidentRepository.SaveMessageAsync(incidentEntity);
+
+				await _domainEventDispatcher.DispatchAsync(incidentEntity.DomainEvents);
+
+				incidentEntity.ClearDomainEvents();
 			}
 			catch (Exception ex)
 			{
