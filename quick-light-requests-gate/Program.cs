@@ -1,5 +1,5 @@
-using messaging.sending.abstractions;
-using middleware;
+using application.messagesenders.sending.abstractions;
+using infrastructure.configuration.middleware;
 using Serilog;
 using servers_api.api.streaming.clients;
 using servers_api.api.streaming.core;
