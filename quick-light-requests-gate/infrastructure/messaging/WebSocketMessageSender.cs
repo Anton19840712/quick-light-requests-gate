@@ -1,9 +1,8 @@
 ﻿using System.Net.WebSockets;
 using System.Text;
 using application.interfaces.messaging;
-using infrastructure.messagebroker;
 
-namespace infrastructure.messagesenders.sending
+namespace infrastructure.messaging
 {
 	public class WebSocketMessageSender : BaseMessageSender<WebSocketMessageSender>
 	{

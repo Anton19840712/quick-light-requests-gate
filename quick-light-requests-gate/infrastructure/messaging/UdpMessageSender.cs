@@ -2,9 +2,8 @@
 using System.Net;
 using System.Text;
 using application.interfaces.messaging;
-using infrastructure.messagebroker;
 
-namespace infrastructure.messagesenders.sending
+namespace infrastructure.messaging
 {
 	public class UdpMessageSender : BaseMessageSender<UdpMessageSender>
 	{

@@ -2,7 +2,7 @@
 using RabbitMQ.Client;
 using application.interfaces.messaging;
 
-namespace infrastructure.messagebroker
+namespace infrastructure.messaging
 {
 	public class RabbitMqQueueListener : IRabbitMqQueueListener<RabbitMqQueueListener>
 	{

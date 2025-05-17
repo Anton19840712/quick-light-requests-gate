@@ -1,6 +1,6 @@
 ﻿using application.interfaces.networking;
 
-namespace infrastructure.networkservices.core
+namespace infrastructure.networking
 {
 	// 2
 	public class NetworkServerManager

@@ -2,9 +2,8 @@
 using System.Net.Sockets;
 using application.interfaces.networking;
 using application.interfaces.services;
-using infrastructure.networkservices.connectionContexts;
 
-namespace infrastructure.networkservices.servers
+namespace infrastructure.networking
 {
 	public class TcpNetworkServer : INetworkServer
 	{

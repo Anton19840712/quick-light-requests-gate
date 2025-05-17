@@ -1,7 +1,7 @@
 ﻿using System.Net.WebSockets;
 using application.interfaces.networking;
 
-namespace infrastructure.networkservices.connectionContexts
+namespace infrastructure.networking
 {
 	public class WebSocketConnectionContext : IConnectionContext
 	{

@@ -4,7 +4,7 @@ using domain.entities;
 using domain.enums;
 using domain.models.outbox;
 
-namespace application.services.processing
+namespace infrastructure.services.processing
 {
 	// Сервис обработки сообщений:
 	public class MessageProcessingService : IMessageProcessingService

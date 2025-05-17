@@ -1,6 +1,6 @@
 ﻿using application.interfaces.messaging;
 using domain.models.configurationsettings;
-using infrastructure.messagebroker;
+using infrastructure.messaging;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using Serilog;

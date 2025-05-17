@@ -1,7 +1,7 @@
 ﻿using System.Net.Sockets;
 using application.interfaces.networking;
 
-namespace infrastructure.networkservices.connectionContexts
+namespace infrastructure.networking
 {
 	public class TcpConnectionContext : IConnectionContext
 	{

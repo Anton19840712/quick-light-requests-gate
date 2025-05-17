@@ -3,7 +3,7 @@ using System.Text;
 using application.interfaces.networking;
 using application.interfaces.services;
 
-namespace infrastructure.networkservices.clients
+namespace infrastructure.networking
 {
 	public class UdpNetworkClient : INetworkClient
 	{

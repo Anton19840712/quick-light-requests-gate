@@ -1,10 +1,9 @@
 ﻿using application.interfaces.messaging;
 using application.interfaces.networking;
 using application.interfaces.services;
-using infrastructure.messagebroker;
-using infrastructure.networkservices.connectionContexts;
+using infrastructure.networking;
 
-namespace infrastructure.messagesenders.sending
+namespace infrastructure.messaging
 {
 	public class ConnectionMessageSenderFactory
 	{

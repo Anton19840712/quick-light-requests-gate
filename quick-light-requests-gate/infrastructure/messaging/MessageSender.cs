@@ -1,6 +1,6 @@
 ﻿using application.interfaces.networking;
 using application.interfaces.services;
-using infrastructure.messagesenders.sending;
+using infrastructure.messaging;
 
 public class MessageSender : IMessageSender
 {

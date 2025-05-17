@@ -1,8 +1,7 @@
 ﻿using application.interfaces.messaging;
 using application.interfaces.services;
-using infrastructure.messagebroker;
 
-namespace infrastructure.messagesenders.sending
+namespace infrastructure.messaging
 {
 	public abstract class BaseMessageSender<T> : IConnectionMessageSender
 	{

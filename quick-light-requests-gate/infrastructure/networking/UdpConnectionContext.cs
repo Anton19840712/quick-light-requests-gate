@@ -2,7 +2,7 @@
 using System.Net;
 using application.interfaces.networking;
 
-namespace infrastructure.networkservices.connectionContexts
+namespace infrastructure.networking
 {
 	public class UdpConnectionContext : IConnectionContext
 	{

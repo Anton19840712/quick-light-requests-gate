@@ -1,6 +1,6 @@
 ﻿using application.interfaces.messaging;
 using domain.entities;
-using infrastructure.messagebroker;
+using infrastructure.messaging;
 using infrastructure.persistence.repositories;
 using Microsoft.AspNetCore.Mvc;
 
